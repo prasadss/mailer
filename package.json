@@ -1,0 +1,30 @@
+{
+  "name": "rabbitmq-mailer",
+  "version": "1.0.0",
+  "description": "Endpoints",
+  "main": "app.js",
+  "scripts": {
+    "prestart": "docker start mailer-mongo rabbitMQ-poc",
+    "start": "node app.js",
+    "pre:dev": "docker-compose up -d",
+    "dev": "nodemon --inspect=9229 app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "listener": "node rabbit-listener.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.7.1",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "helmet": "^4.5.0",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.9",
+    "nodemailer": "^6.6.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

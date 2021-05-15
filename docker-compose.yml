@@ -1,0 +1,19 @@
+mongo_mailer:
+  image: mongo
+  restart: always
+  container_name: 'mailer-mongo'
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: example
+  ports:
+    - "27017:27017"
+
+rabbitmq_poc:
+  container_name: 'rabbitMQ-poc'
+  image: rabbitmq:3.8.12-management
+  environment:
+    RABBITMQ_DEFAULT_USER: rabbitmq
+    RABBITMQ_DEFAULT_PASS: rabbitmqpass
+  ports:
+    - "5672:5672"  
+    - "15672:15672"
